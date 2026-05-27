@@ -30,6 +30,7 @@ Projekt implementuje hierarchický ML pipeline pre automatizovanú detekciu mino
 | `model3.ipynb` | Trénovanie Modelu 3 |
 | `pipeline.ipynb` | Spustenie celého pipeline |
 | `xai.ipynb` | SHAP analýza a interpretovateľnosť modelov |
+| `preprocessing.ipynb` | Predspracovanie dát — načítanie, označenie porúch, agregácia do 6-hodinových blokov a priradenie typov porúch |
 
 ---
 > **Dôležité:** Pre úplné spustenie vrátane predspracovania dát je potrebné stiahnuť vstupné súbory z prílohy bakalárskej práce (ZIP súbor) a umiestniť ich do priečinka `data/`. Pre spustenie samotných modelov stačí iba súbor `final_typy.csv`.
