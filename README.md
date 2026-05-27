@@ -1,1 +1,113 @@
+# Detekcia minoritných porúch v elektroenergetických systémoch
 
+Bakalárska práca — Technická univerzita v Košiciach   
+Autor: Tymofii Kuichi  
+Vedúci práce: doc. Ing. Martin Sarnovský, PhD.
+
+---
+
+## Popis projektu
+
+Projekt implementuje hierarchický ML pipeline pre automatizovanú detekciu minoritných typov porúch na odberných miestach elektroenergetickej siete. Pipeline pozostáva z troch sekvenčných modelov XGBoost optimalizovaných pomocou nástroja Optuna:
+
+- **Model 1** — binárna detekcia prítomnosti poruchy
+- **Model 2** — identifikácia minoritného typu poruchy
+- **Model 3** — multi-label klasifikácia konkrétneho typu poruchy
+
+---
+
+## Štruktúra repozitára
+tr607da/
+├── README.md                  ← popis projektu a inštrukcie
+├── requirements.txt           ← zoznam knižníc
+├── data                       ← vstupne datasety
+├── models/
+│   ├── model1.pkl             ← natrénovaný Model 1
+│   ├── model2.pkl             ← natrénovaný Model 2
+│   └── model3_models.pkl      ← natrénované modely Model 3
+├── model1.ipynb               ← trénovanie Modelu 1
+├── model2.ipynb               ← trénovanie Modelu 2
+├── model3.ipynb               ← trénovanie Modelu 3
+├── pipeline.ipynb             ← spustenie celého pipeline
+└── xai.ipynb                  ← SHAP analýza a interpretovateľnosť modelov (summary plot, waterfall plot)
+
+---
+
+## Požiadavky
+
+Python 3.12
+
+### Inštalácia knižníc
+
+```bash
+pip install -r requirements.txt
+```
+
+### Zoznam knižníc
+
+| Knižnica | Verzia |
+|---|---|
+| xgboost | 3.2.0 |
+| optuna | 4.8.0 |
+| scikit-learn | 1.5.1 |
+| joblib | 1.4.2 |
+| numpy | 1.26.4 |
+| pandas | 2.2.2 |
+| shap | 0.51.0 |
+| matplotlib | 3.9.2 |
+
+---
+
+## Poriadok spustenia
+
+
+### Krok 1 — Príprava
+
+Uistite sa že súbor `data/final_typy.csv` je umiestnený v priečinku `data/` a priečinok `models/` obsahuje natrénované modely.
+
+
+### Krok 2 — Spustenie pipeline a analýzy
+
+Natrénované modely sú už uložené v priečinku `models/` — trénovanie nie je potrebné. Stačí spustiť:
+
+pipeline.ipynb  →  výsledky celého hierarchického pipeline
+xai.ipynb       →  SHAP analýza interpretovateľnosti modelov
+
+### Krok 3 — Opätovné trénovanie (voliteľné)
+
+Ak chcete modely natrénovať znova, spustite v ľubovoľnom poradí:
+model1.ipynb  →  uloží models/model1.pkl
+model2.ipynb  →  uloží models/model2.pkl
+model3.ipynb  →  uloží models/model3_models.pkl
+
+> **Poznámka:** Trénovanie každého modelu trvá niekoľko minút z dôvodu optimalizácie hyperparametrov pomocou Optuna (150–300 pokusov).
+> > **Poznámka:** Pri opätovnom trénovaní môžu výsledky mierne odlišovať od výsledkov uvedených v bakalárskej práci. Je to spôsobené pravdepodobnostným charakterom algoritmu TPE v nástroji Optuna, a to aj napriek fixovanému parametru `seed=42`. Pre reprodukciu pôvodných výsledkov použite uložené modely zo súborov `.pkl`.
+
+### Krok 4 — Spustenie pipeline a analýzy
+
+Po natrénovaní všetkých modelov spustite:
+
+pipeline.ipynb  →  výsledky celého hierarchického pipeline
+xai.ipynb       →  SHAP grafy interpretovateľnosti modelov
+
+---
+
+## Dáta
+
+Vstupný súbor `data/final_typy.csv` obsahuje agregované 6-hodinové bloky meraní napätia a prúdu z odberných miest elektroenergetickej siete. Dataset obsahuje celkovo 208 358 záznamov zo 106 odberných miest (veľkosť súboru: 144 MB).
+
+Priečinok `data/` obsahuje aj pomocné súbory použité pri predspracovaní dát:
+- `Zoznam_evidovaných_po...` — zoznam evidovaných porúch merania
+- `typy_fixed.xlsx` — opravený zoznam typov porúch
+
+---
+
+## Výsledky
+
+Pipeline dosahuje nasledujúce výsledky na testovacej množine:
+
+| Model | Úloha | Recall | Precision |
+|---|---|---|---|
+| Model 1 | Detekcia poruchy | 0.82 | 0.90 |
+| Model 2 | Detekcia minoritnej poruchy | 0.78 | 0.61 |
+| Model 3 | Multi-label klasifikácia | 0.87 (micro) | 0.72 (micro) |
