@@ -17,19 +17,20 @@ Projekt implementuje hierarchický ML pipeline pre automatizovanú detekciu mino
 ---
 
 ## Štruktúra repozitára
-tr607da/
-├── README.md                  ← popis projektu a inštrukcie
-├── requirements.txt           ← zoznam knižníc
-├── data                       ← vstupne datasety
-├── models/
-│   ├── model1.pkl             ← natrénovaný Model 1
-│   ├── model2.pkl             ← natrénovaný Model 2
-│   └── model3_models.pkl      ← natrénované modely Model 3
-├── model1.ipynb               ← trénovanie Modelu 1
-├── model2.ipynb               ← trénovanie Modelu 2
-├── model3.ipynb               ← trénovanie Modelu 3
-├── pipeline.ipynb             ← spustenie celého pipeline
-└── xai.ipynb                  ← SHAP analýza a interpretovateľnosť modelov (summary plot, waterfall plot)
+
+| Súbor | Popis |
+|---|---|
+| `README.md` | Popis projektu a inštrukcie |
+| `requirements.txt` | Zoznam knižníc |
+| `data` | Vstupnе datasetн |
+| `models/model1.pkl` | Natrénovaný Model 1 |
+| `models/model2.pkl` | Natrénovaný Model 2 |
+| `models/model3_models.pkl` | Natrénované modely Model 3 |
+| `model1.ipynb` | Trénovanie Modelu 1 |
+| `model2.ipynb` | Trénovanie Modelu 2 |
+| `model3.ipynb` | Trénovanie Modelu 3 |
+| `pipeline.ipynb` | Spustenie celého pipeline |
+| `xai.ipynb` | SHAP analýza a interpretovateľnosť modelov |
 
 ---
 
