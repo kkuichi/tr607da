@@ -106,7 +106,6 @@ Priečinok `data/` obsahuje nasledujúce súbory:
 | `agg_6h_typy2.csv` | Medzisúbor — agregované dáta pred finálnym spracovaním | 141.9 MB |
 | `energy_with_faults_typy.csv` | Medzisúbor — dáta s pripojenými typmi porúch | 679.2 MB |
 
-> **Pre spustenie modelov** sú potrebné iba súbory `final_typy.csv` a `ims_tuke_poruchy_28072025.parquet`.
 
 ## Výsledky
 
