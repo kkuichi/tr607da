@@ -95,13 +95,18 @@ xai.ipynb       →  SHAP grafy interpretovateľnosti modelov
 
 ## Dáta
 
-Vstupný súbor `data/final_typy.csv` obsahuje agregované 6-hodinové bloky meraní napätia a prúdu z odberných miest elektroenergetickej siete. Dataset obsahuje celkovo 208 358 záznamov zo 106 odberných miest (veľkosť súboru: 144 MB).
+Priečinok `data/` obsahuje nasledujúce súbory:
 
-Priečinok `data/` obsahuje aj pomocné súbory použité pri predspracovaní dát:
-- `Zoznam_evidovaných_po...` — zoznam evidovaných porúch merania
-- `typy_fixed.xlsx` — opravený zoznam typov porúch
+| Súbor | Popis | Veľkosť |
+|---|---|---|
+| `final_typy.csv` | Hlavný vstupný dataset — agregované 6-hodinové bloky meraní. Používa sa vo všetkých modeloch | 144 MB |
+| `ims_tuke_poruchy_28072025.parquet` | Zoznam registrovaných porúch zo systému | 83 MB |
+| `Zoznam_evidovaných_poruch_merania.xlsx` | Zoznam evidovaných porúch merania so skutočnými dátumami vzniku | 31.5 KB |
+| `typy_fixed.xlsx` | Opravený zoznam typov porúch | 15.4 KB |
+| `agg_6h_typy2.csv` | Medzisúbor — agregované dáta pred finálnym spracovaním | 141.9 MB |
+| `energy_with_faults_typy.csv` | Medzisúbor — dáta s pripojenými typmi porúch | 679.2 MB |
 
----
+> **Pre spustenie modelov** sú potrebné iba súbory `final_typy.csv` a `ims_tuke_poruchy_28072025.parquet`.
 
 ## Výsledky
 
