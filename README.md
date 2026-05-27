@@ -1,7 +1,7 @@
 # Detekcia minoritných porúch v elektroenergetických systémoch
 
 Bakalárska práca — Technická univerzita v Košiciach   
-Autor: Tymofii Kuichi  
+Autor: Tymofii Radibov 
 Vedúci práce: doc. Ing. Martin Sarnovský, PhD.
 
 ---
