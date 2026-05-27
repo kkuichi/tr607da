@@ -32,6 +32,7 @@ Projekt implementuje hierarchický ML pipeline pre automatizovanú detekciu mino
 | `xai.ipynb` | SHAP analýza a interpretovateľnosť modelov |
 
 ---
+> **Dôležité:** Pre úplné spustenie vrátane predspracovania dát je potrebné stiahnuť vstupné súbory z prílohy bakalárskej práce (ZIP súbor) a umiestniť ich do priečinka `data/`. Pre spustenie samotných modelov stačí iba súbor `final_typy.csv`.
 
 ## Požiadavky
 
