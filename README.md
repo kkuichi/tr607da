@@ -22,7 +22,6 @@ Projekt implementuje hierarchický ML pipeline pre automatizovanú detekciu mino
 |---|---|
 | `README.md` | Popis projektu a inštrukcie |
 | `requirements.txt` | Zoznam knižníc |
-| `data` | Vstupnе datasetн |
 | `models/model1.pkl` | Natrénovaný Model 1 |
 | `models/model2.pkl` | Natrénovaný Model 2 |
 | `models/model3_models.pkl` | Natrénované modely Model 3 |
@@ -95,7 +94,7 @@ xai.ipynb       →  SHAP grafy interpretovateľnosti modelov
 
 ## Dáta
 
-Priečinok `data/` obsahuje nasledujúce súbory:
+> **Poznámka:** Vstupný dataset `final_typy.csv` nie je súčasťou repozitára z dôvodu veľkosti súboru (144 MB). Dataset je dostupný v prílohe bakalárskej práce (ZIP súbor).
 
 | Súbor | Popis | Veľkosť |
 |---|---|---|
